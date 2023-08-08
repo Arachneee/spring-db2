@@ -7,6 +7,7 @@ plugins {
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
+ext["hibernate.version"] = "5.6.5.Final"
 
 configurations {
 	compileOnly {
@@ -28,12 +29,17 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	//MyBatis 스프링 부트 3.0 추가
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.1'
+	//JPA 추가
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
 
 	//H2 데이터베이스 추가
 	runtimeOnly 'com.h2database:h2'
 	//테스트에서 lombok 사용
 	testCompileOnly 'org.projectlombok:lombok'
 	testAnnotationProcessor 'org.projectlombok:lombok'
+
+
 }
 
 tasks.named('test') {
